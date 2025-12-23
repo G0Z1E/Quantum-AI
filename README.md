@@ -1,5 +1,4 @@
-Here’s a clean, **student-friendly but professional README.md** you can drop straight into the repo.
-
+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
 ---
 
 # Quantum AI Engine
