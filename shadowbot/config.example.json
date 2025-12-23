@@ -1,0 +1,10 @@
+{
+  "log_level": "INFO",
+  "authorized_targets": ["192.168.40.130"],
+  "nmap_args": ["nmap", "-Pn", "-sC", "-sV"],
+  "jobs": {
+    "host_snapshot": 300,
+    "network_snapshot": 300,
+    "disk_snapshot": 600
+  }
+}
