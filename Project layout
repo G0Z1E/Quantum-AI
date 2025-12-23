@@ -1,0 +1,19 @@
+quantum_ai/
+  app.py
+  config.py
+  core/
+    __init__.py
+    engine.py
+    memory.py
+    supervisor.py
+    tasks.py
+  skills/
+    __init__.py
+    base.py
+    threat_scan.py
+    market_watch.py
+  utils/
+    __init__.py
+    log.py
+pyproject.toml
+README.md
