@@ -1,0 +1,205 @@
+# ShadowBot – Defensive Automation Assistant
+
+## Overview
+
+ShadowBot is a **defensive automation and monitoring tool** designed to run safe system commands, collect host and network snapshots, schedule recurring jobs, and log all activity.
+It simulates a “shadow operations” assistant **without performing offensive or malicious actions**.
+
+ShadowBot is built for:
+
+* Cybersecurity labs
+* Security automation coursework
+* System monitoring
+* Ethical, authorized environments only
+
+It uses a **strict command policy** to prevent dangerous or exploitative commands from running.
+
+---
+
+## Key Features
+
+* **Command Policy Enforcement** – Blocks risky or malicious commands by default
+* **System & Network Sensors** – Collects host, network, and disk snapshots
+* **Scheduler** – Runs monitoring jobs at set intervals
+* **Authorized Scanning Only** – Nmap scans allowed only for whitelisted targets
+* **Centralized Logging** – Logs to console and file
+* **CLI Interface** – Simple command-line usage
+* **Modular Design** – Easy to extend or integrate into other AI frameworks
+
+---
+
+## Project Structure
+
+```
+shadowbot/
+│
+├── shadowbot.py           # Main CLI entry point
+├── policy.py              # Command allow/deny policy
+├── scheduler.py           # Job scheduler
+├── sensors.py             # Host, network, and disk monitoring
+├── logger.py              # Logging configuration
+├── config.example.json    # Sample configuration
+└── README.md
+```
+
+---
+
+## Requirements
+
+* Python **3.10+**
+* Linux environment recommended
+* Nmap (optional, only for scanning feature)
+
+Install Nmap (Ubuntu):
+
+```bash
+sudo apt install nmap
+```
+
+---
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/shadowbot.git
+cd shadowbot
+```
+
+(Optional but recommended)
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+---
+
+## Configuration
+
+Create your configuration file:
+
+```bash
+cp config.example.json config.json
+```
+
+### Example Configuration
+
+```json
+{
+  "log_level": "INFO",
+  "authorized_targets": ["192.168.40.130"],
+  "nmap_args": ["nmap", "-Pn", "-sC", "-sV"],
+  "jobs": {
+    "host_snapshot": 300,
+    "network_snapshot": 300,
+    "disk_snapshot": 600
+  }
+}
+```
+
+---
+
+## Usage
+
+### Run a Safe Command
+
+```bash
+python3 shadowbot.py --config config.json run --exec "uptime"
+```
+
+If a command violates policy, it will be **blocked and logged**.
+
+---
+
+### Run Authorized Nmap Scan
+
+```bash
+python3 shadowbot.py --config config.json scan --target 192.168.40.130
+```
+
+⚠️ The target **must** be listed in `authorized_targets`.
+
+---
+
+### Run Scheduled Monitoring Jobs
+
+Run continuously:
+
+```bash
+python3 shadowbot.py --config config.json loop
+```
+
+Run one cycle only:
+
+```bash
+python3 shadowbot.py --config config.json loop --once
+```
+
+---
+
+## Command Policy (Security)
+
+ShadowBot uses a **deny-first security model**:
+
+* Reverse shells, password cracking, exploitation tools, and destructive commands are blocked
+* Only safe, read-only, diagnostic commands are allowed
+* Commands are logged whether allowed or blocked
+
+This ensures ShadowBot remains **defensive and ethical**.
+
+---
+
+## Logging
+
+Logs are stored in:
+
+```
+.shadowbot_logs/shadowbot.log
+```
+
+Each log entry includes:
+
+* Timestamp
+* Action taken
+* Command executed or blocked
+* System snapshot events
+
+---
+
+## Ethical Use Statement
+
+ShadowBot is intended for:
+
+* Defensive security automation
+* Education and lab environments
+* Authorized system monitoring
+
+**Do not use ShadowBot for unauthorized access, exploitation, or surveillance.**
+
+---
+
+## Future Enhancements
+
+* Integration with Quantum AI engine
+* JSON and CSV reporting
+* Email or dashboard alerts
+* Docker deployment
+* AI-driven anomaly detection
+
+---
+
+## Author
+
+**Ikenna Uba**
+Cybersecurity • Security Automation • AI Systems
+
+---
+
+If you want, next I can:
+
+* Merge **ShadowBot into Quantum AI** as a skill
+* Add a **course-rubric section**
+* Create a **Dockerfile + README addendum**
+* Generate **screenshots + usage diagrams**
