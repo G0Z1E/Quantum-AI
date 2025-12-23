@@ -75,7 +75,7 @@ sudo apt install nmap
 Clone the repository and navigate into it:
 
 ```bash
-git clone https://github.com/yourusername/quantum_ai.git
+git clone https://github.com/G0Z1E/quantum_ai.git
 cd quantum_ai
 ```
 
